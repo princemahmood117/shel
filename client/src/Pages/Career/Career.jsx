@@ -3,6 +3,7 @@ import { useState } from "react";
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen";
 import Talent from "./Talent";
 import JobForm from "./JobForm";
+import Dept from "./Department/Dept";
 
 const Career = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -49,6 +50,7 @@ const Career = () => {
       <div>
         <Talent></Talent>
         <JobForm></JobForm>
+        <Dept></Dept>
     </div>
     </>
   );
