@@ -18,7 +18,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative w-full text-white mt-6"
+      className="relative w-full text-white "
       style={{
         backgroundImage: `url(https://sheltech-bd.com/images/static/footer.png)`,
         backgroundSize: "cover",

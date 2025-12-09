@@ -3,6 +3,8 @@ import { useState } from "react";
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen";
 import Essence from "./Essence";
 import EssenceHero from "./EssenceHero";
+import Venture from "./Venture";
+import Testimonial from "../../Components/LegacySection/Testimonial";
 
 const Media = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,6 +53,8 @@ const Media = () => {
       <div>
         <Essence></Essence>
         <EssenceHero></EssenceHero>
+        <Venture></Venture>
+        <Testimonial></Testimonial>
       </div>
     </>
   );

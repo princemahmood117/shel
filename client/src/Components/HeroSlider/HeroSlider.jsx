@@ -25,7 +25,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <div className="w-screen h-screen relative overflow-hidden m-0 p-0">
+    <div className="h-screen relative overflow-hidden m-0 p-0">
       <Swiper
         autoplay={{
           delay: 5000,

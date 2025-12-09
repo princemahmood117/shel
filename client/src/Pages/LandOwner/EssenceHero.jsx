@@ -65,6 +65,7 @@ const EssenceHero = () => {
                     <div className="flex flex-col items-center justify-around text-center">
                       {/* Icon */}
                       <div className="text-white transition-colors duration-500 group-hover:text-gray-800 mb-4">
+                        
                         {category.icon}
                       </div>
                       {/* Title */}
