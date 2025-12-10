@@ -20,6 +20,7 @@ import SapphireSeries from "../../Pages/SubmenuPages/SapphireSeries";
 import Land from "../../Pages/SubmenuPages/Land";
 import OurLeaders from "../../Pages/SubmenuPages/OurLeaders";
 import Awards from "../../Pages/SubmenuPages/Awards";
+import ProjectDetails from "../HeroSlider/ProjectDetails";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,11 @@ const router = createBrowserRouter([
       {
         path : "/media",
         element: <Media></Media>
+      },
+
+      {
+        path : "/project/:projectId",
+        element : <ProjectDetails></ProjectDetails>
       },
 
       {
