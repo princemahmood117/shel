@@ -51,9 +51,9 @@ export default function Royal() {
         <div
           className="
     md:w-1/2 w-full relative overflow-visible flex items-center py-0 
-    px-4 sm:px-6 md:px-0
+    px-0  md:px-4 lg:px-1
   "
-          style={{ height: "650px" }}
+          style={{ height: "680px" }}
         >
           <Swiper
             modules={[Navigation, EffectCoverflow, Autoplay]}
@@ -79,9 +79,9 @@ export default function Royal() {
             onSlideChange={handleSlideChange}
             className="w-full h-full"
             breakpoints={{
-              320: { slidesPerView: 1.5 },
-              768: { slidesPerView: 1 },
-              1024: { slidesPerView: 2.1 },
+              320: { slidesPerView: 1 },
+              768: { slidesPerView: 1.5 },
+              1024: { slidesPerView: 2 },
             }}
           >
             {projects.map((project, index) => (
@@ -96,14 +96,14 @@ export default function Royal() {
                         : "scale-90 opacity-80 z-0"
                     }`}
                     style={{
-                      width: isActive ? "450px" : "300px",
-                      height: isActive ? "650px" : "420px",
+                      width: isActive ? "460px" : "300px",
+                      height: isActive ? "680px" : "420px",
                     }}
                   >
                     <img
                       src={project.image}
                       alt={project.name}
-                      className="w-full h-full object-cover hover:scale-110 transition-all duration-700"
+                      className="w-full h-full object-cover hover:scale-110 transition-all duration-1500"
                     />
                   </div>
                 )}

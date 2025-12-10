@@ -103,7 +103,7 @@ const SignUp = () => {
         </div>
 
         {/* Right Side (Blank) */}
-        <div className="hidden md:block md:w-1/2 bg-gray-100"></div>
+        <div className="hidden md:block md:w-1/2"></div>
       </div>
     </>
   );

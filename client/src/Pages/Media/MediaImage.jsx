@@ -1,9 +1,6 @@
-
-
 import mediaData from "./mediaData";
 
 const MediaImage = () => {
-
   return (
     <div className="w-full py-16 px-4">
       <div className="max-w-7xl mx-auto">
@@ -19,21 +16,22 @@ const MediaImage = () => {
           {mediaData.map((insight) => (
             <div
               key={insight.id}
-              className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg h-[500px] md:h-[450px] transition-transform duration-300 hover:scale-105"
+              className="relative cursor-pointer overflow-hidden rounded-lg shadow-lg h-[500px] md:h-[550px] "
             >
               <img
                 src={insight.image}
                 alt={insight.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover z-50 transition duration-1000 hover:scale-110"
               />
 
               {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
+
 
               {/* Content */}
-              <div className="absolute inset-0 flex flex-col justify-between p-6">
+              <div className="absolute inset-0 flex flex-col justify-between p-6 pointer-events-none">
                 {/* Title */}
-                <h3 className="text-white text-2xl font-semibold leading-tight group-hover:translate-y-[-4px] transition-transform duration-300">
+                <h3 className="text-white text-2xl font-semibold leading-tight">
                   {insight.title}
                 </h3>
 
