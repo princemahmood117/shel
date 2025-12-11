@@ -127,6 +127,15 @@
 
 
 
+
+
+
+
+
+
+
+// Currently working
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -184,7 +193,7 @@ export default function Royal() {
 
         {/* Right Side - Swiper */}
         <div
-          className="md:w-1/2 w-full relative overflow-visible flex items-center py-0 px-0 md:px-4 lg:px-1"
+          className="md:w-1/2 w-full cursor-pointer relative overflow-visible flex items-center py-0 px-0 md:px-4 lg:px-1"
           style={{ height: "680px" }}
         >
           <Swiper
@@ -238,13 +247,7 @@ export default function Royal() {
                       alt={project.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1500"
                     />
-                    
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                      <span className="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        View Details
-                      </span>
-                    </div>
+
                   </div>
                 )}
               </SwiperSlide>
@@ -257,3 +260,4 @@ export default function Royal() {
     </>
   );
 }
+
