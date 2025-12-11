@@ -30,10 +30,12 @@ const InsightSection = () => {
 
   const handleInsightClick = (slug) => {
     navigate(`/insights/${slug}`);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleViewAll = () => {
-    navigate("/insights");
+    navigate("/");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -62,6 +64,7 @@ const InsightSection = () => {
           modules={[Navigation, Pagination]}
           spaceBetween={30}
           slidesPerView={1}
+          loop={true}
           onSwiper={setSwiperInstance}
           breakpoints={{
             640: {

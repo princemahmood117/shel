@@ -44,7 +44,6 @@ export default function HeroSlider() {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="relative w-full h-full">
-              {/* Image, Video, or Vimeo */}
               {slide.type === "vimeo" ? (
                 <iframe
                   src={`https://player.vimeo.com/video/${slide.videoId}?autoplay=1&loop=1&muted=1&background=1&controls=0`}

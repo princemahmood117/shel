@@ -1,4 +1,3 @@
-
 // RelatedProjects.jsx
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
@@ -7,23 +6,38 @@ import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import Title from "../Titile/Title";
+import ArrowButton from "../ArrowButton/ArrowButton";
+import { useState } from "react";
 
 const RelatedProjects = ({ currentProjectId, projectType, allProjects }) => {
   const navigate = useNavigate();
+    const [swiperInstance, setSwiperInstance] = useState(null);
+  
+  
+    const handleNext = () => {
+      if (swiperInstance) {
+        swiperInstance.slideNext();
+      }
+    };
+  
+    const handlePrev = () => {
+      if (swiperInstance) {
+        swiperInstance.slidePrev();
+      }
+    };
 
   // Filter related projects (same type, exclude current project)
   const relatedProjects = allProjects.filter(
     (project) => project.type === projectType && project.id !== currentProjectId
   );
 
-  // If no related projects, don't render the component
   if (relatedProjects.length === 0) {
     return null;
   }
 
   const handleProjectClick = (projectId) => {
     navigate(`/project/${projectId}`);
-    // Scroll to top when navigating
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -31,27 +45,35 @@ const RelatedProjects = ({ currentProjectId, projectType, allProjects }) => {
     <div className="w-full bg-gray-50 py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-12">
+        {/* <div className="mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-800 mb-4 tracking-wide">
             RELATED PROJECTS
           </h2>
+        </div> */}
+        <div className="md:flex justify-between items-center md:mb-6 ">
+          <div>
+            <Title className="uppercase text-3xl" text="RELATED PROJECTS" />
+          </div>
+
+          {/* buttons */}
+          <div className="flex items-center gap-8 pb-6">
+            <ArrowButton direction="left" onClick={handlePrev}></ArrowButton>
+            <ArrowButton direction="right" onClick={handleNext}></ArrowButton>
+
+            <div className="flex justify-center items-center gap-3">
+              View All
+              <ArrowButton direction="right"></ArrowButton>
+            </div>
+          </div>
         </div>
 
         {/* Slider Container */}
         <div className="relative px-1">
-          {/* Navigation Buttons */}
-          <button className="related-prev-btn absolute md:left-0 left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-10 md:h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
-            <IoIosArrowRoundBack className="w-6 h-6 md:w-8 md:h-8 text-gray-800" />
-          </button>
-
-          <button className="related-next-btn absolute md:right-0 right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-10 md:h-10 bg-white/80 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
-            <IoIosArrowRoundForward className="w-6 h-6 md:w-8 md:h-8 text-gray-800" />
-          </button>
-
-          {/* Swiper Slider */}
           <Swiper
             slidesPerView={1}
             spaceBetween={20}
+            onSwiper={setSwiperInstance}
+            loop={true}
             autoplay={{
               delay: 2000,
               disableOnInteraction: false,
@@ -76,44 +98,31 @@ const RelatedProjects = ({ currentProjectId, projectType, allProjects }) => {
                 spaceBetween: 28,
               },
             }}
-            className="relatedProjectsSwiper"
-          >
+            className="relatedProjectsSwiper">
             {relatedProjects.map((project) => (
               <SwiperSlide key={project.id}>
                 <div
                   onClick={() => handleProjectClick(project.id)}
+                  
                   className="relative group overflow-hidden cursor-pointer h-[550px] shadow-lg hover:shadow-2xl transition-all duration-300 mb-2"
                 >
-                  {/* Project Image */}
                   <img
                     src={project.image}
                     alt={project.name}
                     className="w-full h-full object-cover transition-transform duration-1200 group-hover:scale-105"
                   />
-
-                  {/* Gradient Overlay */}
-                  {/* <div className="absolute  inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div> */}
-
-                  {/* Bottom Info - Always visible but enhanced on hover */}
-                  <div className="absolute bottom-0 left-0 right-0 p-5 text-white transition-all duration-500">
-                     {/* <div className="absolute  inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div> */}
-                    <h3 className="text-xl font-bold mb-2 group-hover:mb-3 transition-all duration-300">
-                      {project.name}
+                  <div className="absolute bottom-4 bg-black/50 left-0 right-0 p-6 text-white bg-linear-to-t from-black/70 to-transparent group-hover:bg-blue-900/80 transition-all duration-500">
+                    <h3 className="text-xl font-semibold mb-2">
+                      {project?.title}
                     </h3>
 
-                    {/* Location & Type */}
-                    <div className="flex items-center gap-2 mb-2">
-                      <svg
-                        className="w-4 h-4 flex-shrink-0"
-                        fill="currentColor"
-                        viewBox="0 0 20 20">
-                        <path
-                          fillRule="evenodd"
-                          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      <p className="text-sm font-medium">{project.location}</p>
+                    <div className=" items-center gap-3">
+                      <h3 className="text-xl font-bold mb-2 transition-all duration-300">
+                        {project.name}
+                      </h3>
+                      <p className="text-sm font-medium">
+                        {project.status} • {project?.location}
+                      </p>
                     </div>
                   </div>
                 </div>

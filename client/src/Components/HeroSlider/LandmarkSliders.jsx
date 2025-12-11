@@ -76,6 +76,7 @@ const LandmarkSliders = () => {
                   </p>
                 </div>
               </div>
+              
             </div>
           </SwiperSlide>
         ))}

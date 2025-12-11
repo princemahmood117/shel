@@ -34,7 +34,7 @@ const ProjectGallery = ({ galleryImages, projectName }) => {
           {galleryImages.map((image, index) => (
             <div
               key={index}
-              className="relative group cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+              className="relative group cursor-pointer overflow-hidden transition-all duration-300"
               onClick={() => openImage(image)}
             >
               <div className="aspect-w-16 aspect-h-12 w-full">

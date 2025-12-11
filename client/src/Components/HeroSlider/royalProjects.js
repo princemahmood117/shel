@@ -325,7 +325,7 @@ const projects = [
   {
     id: "sheltech-cityscape-heights",
     name: "Sheltech Cityscape Heights",
-    type: "Commercial",
+    type: "Residential",
     series: "Sapphire Series",
     location: "Bashundhara",
     status: "Ongoing",
