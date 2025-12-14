@@ -30,9 +30,9 @@ const Footer = () => {
       <div className="absolute inset-0 bg-blue-900/20"></div>
 
       {/* Footer content */}
-      <div className="relative z-10 flex flex-col  py-12 px-4 md:text-center text-left space-y-4">
+      <div className="relative z-10 flex flex-col py-12 px-3 md:text-center text-left space-y-4">
         {/* Line 1: Number */}
-        <h1 className="text-[80px]">16550</h1>
+        <h1 className="text-[78px]">16550</h1>
 
         {/* Line 2: Social icons */}
         <div className="flex space-x-4 md:justify-center md:text-center">

@@ -7,7 +7,7 @@ const ArrowButton = ({ direction = "right", onClick, className = "" }) => {
   return (
     <button
       onClick={onClick}
-      className={`relative inline-flex items-center w-8 h-8 justify-center overflow-hidden font-medium 
+      className={`group relative inline-flex items-center w-8 h-8 justify-center overflow-hidden font-medium 
       transition duration-400 ease-out border border-gray-800 rounded-full  bg-transparent cursor-pointer ${className}`}>
 
       {/* Hover icon */}
